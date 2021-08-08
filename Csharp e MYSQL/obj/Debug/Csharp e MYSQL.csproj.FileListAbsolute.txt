@@ -1,0 +1,10 @@
+F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\bin\Debug\Csharp e MYSQL.exe.config
+F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\bin\Debug\Csharp e MYSQL.exe
+F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\bin\Debug\Csharp e MYSQL.pdb
+F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\obj\Debug\Csharp e MYSQL.csprojAssemblyReference.cache
+F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\obj\Debug\Csharp_e_MYSQL.FormPrincipal.resources
+F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\obj\Debug\Csharp_e_MYSQL.Properties.Resources.resources
+F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\obj\Debug\Csharp e MYSQL.csproj.GenerateResource.cache
+F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\obj\Debug\Csharp e MYSQL.csproj.CoreCompileInputs.cache
+F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\obj\Debug\Csharp e MYSQL.exe
+F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\obj\Debug\Csharp e MYSQL.pdb
