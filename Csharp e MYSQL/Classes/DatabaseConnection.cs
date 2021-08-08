@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Csharp_e_MYSQL.Classes
 {
@@ -32,7 +33,7 @@ namespace Csharp_e_MYSQL.Classes
             }
         }
 
-        public void Close()
+        public void Close()  //FECHA A CONEXÃO COM O BANCO DE DADOS DEFINIDO PELA CLASSE
         {
             try
             {
@@ -44,5 +45,36 @@ namespace Csharp_e_MYSQL.Classes
             }
         }
 
+        public void NonQuery(string sql)
+        {
+            command.CommandText = sql;
+            command.ExecuteNonQuery();
+        }
+
+        public MySqlDataReader Query(string sql)
+        {
+            command.CommandText = sql;
+            return command.ExecuteReader();
+        }
+
+        public DataTable FillDataTable(string sql, string operacao)
+        {
+            DataTable dt = new DataTable();
+            MySqlDataReader MySqlDr;
+            try
+            {
+                MySqlDr = Query(sql);
+                dt.Load(MySqlDr);
+                MySqlDr.Close();
+                Close();
+                return dt;
+            }
+            catch(Exception e)
+            {
+                dt = null;
+                MessageBox.Show($"Falha ao tentar {operacao}! \n\n" + e, $"{operacao}", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return dt;
+            }
+        }
     }
 }
