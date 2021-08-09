@@ -18,6 +18,15 @@ namespace Csharp_e_MYSQL.Classes
         public string Dbpass { get => dbpass; set => dbpass = value; }
         public int Dbport { get => dbport; set => dbport = value; }
 
+        public DatabaseConnection() //Inicializa a classe com valores de teste
+        {
+            dbhost = "localhost";
+            dbnome = "dbteste";
+            dbuser = "teste";
+            dbpass = "teste";
+            Connect();
+        }
+
         public void Connect()  //ABRE CONEXÃO COM O BANCO DE DADOS
         {
             string ConString = $"server={dbhost};database={dbnome};uid={dbuser};pwd={dbpass};port={dbport}";
