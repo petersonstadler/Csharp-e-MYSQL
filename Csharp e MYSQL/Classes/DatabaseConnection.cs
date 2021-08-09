@@ -20,10 +20,11 @@ namespace Csharp_e_MYSQL.Classes
 
         public DatabaseConnection() //Inicializa a classe com valores de teste
         {
-            dbhost = "localhost";
+            dbhost = "127.0.0.1";
             dbnome = "dbteste";
             dbuser = "teste";
             dbpass = "teste";
+            dbport = 3306;
             Connect();
         }
 

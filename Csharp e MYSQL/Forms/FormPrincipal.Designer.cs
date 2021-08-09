@@ -40,12 +40,15 @@ namespace Csharp_e_MYSQL
             // 
             // dataGridMain
             // 
+            this.dataGridMain.AllowUserToAddRows = false;
+            this.dataGridMain.AllowUserToDeleteRows = false;
             this.dataGridMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridMain.Location = new System.Drawing.Point(90, 44);
             this.dataGridMain.Name = "dataGridMain";
+            this.dataGridMain.ReadOnly = true;
             this.dataGridMain.Size = new System.Drawing.Size(567, 423);
             this.dataGridMain.TabIndex = 0;
             // 
@@ -108,6 +111,7 @@ namespace Csharp_e_MYSQL
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dataGridMain);
             this.Name = "FormPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMain)).EndInit();
             this.ResumeLayout(false);
