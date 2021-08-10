@@ -120,17 +120,18 @@ namespace Csharp_e_MYSQL.Forms
             // btnConfirma
             // 
             this.btnConfirma.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnConfirma.Location = new System.Drawing.Point(112, 203);
+            this.btnConfirma.Location = new System.Drawing.Point(330, 172);
             this.btnConfirma.Name = "btnConfirma";
             this.btnConfirma.Size = new System.Drawing.Size(84, 42);
             this.btnConfirma.TabIndex = 8;
             this.btnConfirma.Text = "Confirma";
             this.btnConfirma.UseVisualStyleBackColor = true;
+            this.btnConfirma.Click += new System.EventHandler(this.btnConfirma_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnCancelar.Location = new System.Drawing.Point(202, 203);
+            this.btnCancelar.Location = new System.Drawing.Point(420, 172);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(84, 42);
             this.btnCancelar.TabIndex = 9;
@@ -181,7 +182,7 @@ namespace Csharp_e_MYSQL.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 277);
+            this.ClientSize = new System.Drawing.Size(516, 232);
             this.Controls.Add(this.lblMsgVenda);
             this.Controls.Add(this.lblMsgCusto);
             this.Controls.Add(this.lblMsgCodigo);
@@ -198,6 +199,7 @@ namespace Csharp_e_MYSQL.Forms
             this.Controls.Add(this.lblNome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "InserirProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InserirProduto";
             this.ResumeLayout(false);
             this.PerformLayout();

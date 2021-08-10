@@ -22,3 +22,4 @@ F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\bin\Debug\K4os.Hash.xxHash.dl
 F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\bin\Debug\System.Numerics.Vectors.dll
 F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\bin\Debug\MySql.Data.xml
 F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\obj\Debug\Csharp e MYSQL.csproj.CopyComplete
+F:\Repositórios Git\Csharp-e-MYSQL\Csharp e MYSQL\obj\Debug\Csharp_e_MYSQL.Forms.InserirProduto.resources
