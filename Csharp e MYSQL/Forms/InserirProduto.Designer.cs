@@ -137,6 +137,7 @@ namespace Csharp_e_MYSQL.Forms
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblMsgNome
             // 
@@ -201,6 +202,8 @@ namespace Csharp_e_MYSQL.Forms
             this.Name = "InserirProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InserirProduto";
+            this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InserirProduto_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
