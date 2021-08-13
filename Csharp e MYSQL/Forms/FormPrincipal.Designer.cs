@@ -51,6 +51,7 @@ namespace Csharp_e_MYSQL
             this.dataGridMain.ReadOnly = true;
             this.dataGridMain.Size = new System.Drawing.Size(567, 423);
             this.dataGridMain.TabIndex = 0;
+            this.dataGridMain.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridMain_RowEnter);
             // 
             // btnAdd
             // 

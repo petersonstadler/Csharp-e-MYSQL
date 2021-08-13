@@ -9,6 +9,7 @@ namespace Csharp_e_MYSQL
     public partial class FormPrincipal : Form
     {
         private InserirProduto FormProduto;
+        private Produto produto = new Produto();
 
         public FormPrincipal()
         {
@@ -30,6 +31,24 @@ namespace Csharp_e_MYSQL
             {
                 FormProduto.Show();
                 FormProduto.Focus();
+            }
+        }
+
+        private void dataGridMain_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                dataGridMain.Rows[e.RowIndex].Selected = true;
+                produto.Id = Convert.ToInt32(dataGridMain.Rows[e.RowIndex].Cells[0].Value);
+                produto.Nome = Convert.ToString(dataGridMain.Rows[e.RowIndex].Cells[1].Value);
+                produto.Cod = Convert.ToInt32(dataGridMain.Rows[e.RowIndex].Cells[2].Value);
+                produto.Custo = Convert.ToDecimal(dataGridMain.Rows[e.RowIndex].Cells[3].Value);
+                produto.Venda = Convert.ToDecimal(dataGridMain.Rows[e.RowIndex].Cells[3].Value);
+                MessageBox.Show($"ID: {produto.Id} Cod: {produto.Cod} Nome: {produto.Nome} Custo: {produto.Custo} Venda: {produto.Venda}");
+            }
+            catch(Exception er)
+            {
+                MessageBox.Show("Erro ao preencher produto. \n\n" + er, "Preencher Produto", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -7,7 +7,7 @@ namespace Csharp_e_MYSQL.Classes
     {
         private int id, cod;
         private string nome;
-        decimal custo, venda;
+        private decimal custo, venda;
 
         public int Id { get => id; set => id = value; }
         public int Cod { get => cod; set => cod = value; }
