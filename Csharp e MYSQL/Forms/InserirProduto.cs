@@ -6,9 +6,20 @@ namespace Csharp_e_MYSQL.Forms
 {
     public partial class InserirProduto : Form
     {
+
+        public Produto produto = new Produto();
+        private char func = 'i';
+
+        public char Func { get => func; set => func = value; }
+
         public InserirProduto()
         {
             InitializeComponent();
+        }
+
+        public InserirProduto(Produto p)
+        {
+            produto = p;
         }
 
         private void btnConfirma_Click(object sender, EventArgs e)
@@ -18,13 +29,34 @@ namespace Csharp_e_MYSQL.Forms
                 DatabaseConnection db = new DatabaseConnection();
                 try
                 {
-                    db.NonQuery($"INSERT INTO produto VALUES (null, '{txtBoxNome.Text}', {txtBoxCodigo.Text}, {txtBoxCusto.Text.Replace(",",".")}, {txtBoxVenda.Text.Replace(",", ".")});");
-                    MessageBox.Show("Produto inserido com sucesso!", "Inserir Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Func == 'i')
+                    {
+                        db.NonQuery($"INSERT INTO produto VALUES (null, '{txtBoxNome.Text}', {txtBoxCodigo.Text}, {txtBoxCusto.Text.Replace(",", ".")}, {txtBoxVenda.Text.Replace(",", ".")});");
+                        MessageBox.Show("Produto inserido com sucesso!", "Inserir Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        db.NonQuery($"UPDATE produto SET nomeprod = '{txtBoxNome.Text}', codprod = {txtBoxCodigo.Text}, custoprod = {txtBoxCusto.Text.Replace(",", ".")}, vendaprod = {txtBoxVenda.Text.Replace(",", ".")} WHERE idprod = {produto.Id}");
+                        produto.Nome = txtBoxNome.Text;
+                        produto.Cod = Convert.ToInt32(txtBoxCodigo.Text);
+                        produto.Custo = Convert.ToDecimal(txtBoxCusto.Text);
+                        produto.Venda = Convert.ToDecimal(txtBoxVenda.Text);
+                        MessageBox.Show("Produto alterado com sucesso!", "Alterado Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                    }
                 }
                 catch(Exception er)
                 {
-                    MessageBox.Show("Erro ao incluir produto!" + er, "Incluir Produto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    db.Close();
+                    if (Func == 'i')
+                    {
+                        MessageBox.Show("Erro ao incluir produto!" + er, "Incluir Produto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        db.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao alterar produto!" + er, "Alterar Produto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        db.Close();
+                    }
                 }
             }
         }
@@ -69,18 +101,52 @@ namespace Csharp_e_MYSQL.Forms
 
         private void InserirProduto_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (txtBoxNome.Text != "" || txtBoxCodigo.Text != "" || txtBoxCusto.Text != "" || txtBoxVenda.Text != "") 
+            if (func == 'i')
             {
-                var msg = MessageBox.Show("Tem certeza que deseja sair sem salvar as alterações?", "Sair sem Salvar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (msg == DialogResult.No)
+                if (txtBoxNome.Text != "" || txtBoxCodigo.Text != "" || txtBoxCusto.Text != "" || txtBoxVenda.Text != "")
                 {
-                    e.Cancel = true;
+                    var msg = MessageBox.Show("Tem certeza que deseja sair sem salvar as alterações?", "Sair sem Salvar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (msg == DialogResult.No)
+                    {
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        e.Cancel = false;
+                    }
                 }
-                else
-                {
-                    e.Cancel = false;
-                } 
             }
+            else
+            {
+                if (txtBoxNome.Text != produto.Nome || txtBoxCodigo.Text != Convert.ToString(produto.Cod) || txtBoxCusto.Text != Convert.ToString(produto.Custo) || txtBoxVenda.Text != Convert.ToString(produto.Venda))
+                {
+                    var msg = MessageBox.Show("Tem certeza que deseja sair sem salvar as alterações?", "Sair sem Salvar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (msg == DialogResult.No)
+                    {
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        e.Cancel = false;
+                    }
+                }
+            }
+        }
+
+        public void PopularTxtBox(string nom, int cod, decimal cust, decimal vend)
+        {
+            txtBoxNome.Text = nom;
+            txtBoxCodigo.Text = Convert.ToString(cod);
+            txtBoxCusto.Text = Convert.ToString(cust);
+            txtBoxVenda.Text = Convert.ToString(vend);
+        }
+
+        public void LimparTxtBox()
+        {
+            txtBoxNome.Text = "";
+            txtBoxCodigo.Text = "";
+            txtBoxCusto.Text = "";
+            txtBoxVenda.Text = "";
         }
     }
 }

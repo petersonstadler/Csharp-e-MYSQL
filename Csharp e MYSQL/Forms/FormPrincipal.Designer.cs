@@ -71,6 +71,7 @@ namespace Csharp_e_MYSQL
             this.btnAlterar.TabIndex = 2;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnRemover
             // 

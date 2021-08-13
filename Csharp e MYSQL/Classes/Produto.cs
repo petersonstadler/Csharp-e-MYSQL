@@ -3,7 +3,7 @@ using System.Data;
 
 namespace Csharp_e_MYSQL.Classes
 {
-    class Produto
+    public class Produto
     {
         private int id, cod;
         private string nome;

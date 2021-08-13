@@ -25,10 +25,13 @@ namespace Csharp_e_MYSQL
             if(FormProduto == null || FormProduto.IsDisposed)
             {
                 FormProduto = new InserirProduto();
+                FormProduto.Func = 'i';
                 FormProduto.Show();
             }
             else
             {
+                FormProduto.LimparTxtBox();
+                FormProduto.Func = 'i';
                 FormProduto.Show();
                 FormProduto.Focus();
             }
@@ -48,6 +51,26 @@ namespace Csharp_e_MYSQL
             catch(Exception er)
             {
                 MessageBox.Show("Erro ao preencher produto. \n\n" + er, "Preencher Produto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            if (FormProduto == null || FormProduto.IsDisposed)
+            {
+                FormProduto = new InserirProduto();
+                FormProduto.Func = 'a';
+                FormProduto.produto = produto;
+                FormProduto.PopularTxtBox(produto.Nome, produto.Cod, produto.Custo, produto.Venda);
+                FormProduto.Show();
+            }
+            else
+            {
+                FormProduto.produto = produto;
+                FormProduto.PopularTxtBox(produto.Nome, produto.Cod, produto.Custo, produto.Venda);
+                FormProduto.Func = 'a';
+                FormProduto.Show();
+                FormProduto.Focus();
             }
         }
     }
