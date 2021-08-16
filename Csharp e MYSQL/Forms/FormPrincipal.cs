@@ -99,6 +99,7 @@ namespace Csharp_e_MYSQL
                 if(result == DialogResult.Yes)
                 {
                     produto.ExcluirProduto(produto.Id);
+                    produto = new Produto();
                 }
                 else
                 {

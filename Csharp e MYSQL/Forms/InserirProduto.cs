@@ -149,5 +149,37 @@ namespace Csharp_e_MYSQL.Forms
             txtBoxCusto.Text = "";
             txtBoxVenda.Text = "";
         }
+
+        private void txtBoxNome_TextChanged(object sender, EventArgs e)
+        {
+            Validador validar = new Validador();
+            string msgNome = "";
+            _ = validar.CampoNome(txtBoxNome.Text, ref msgNome);
+            lblMsgNome.Text = msgNome;
+        }
+
+        private void txtBoxCodigo_TextChanged(object sender, EventArgs e)
+        {
+            Validador validar = new Validador();
+            string msgCod = "";
+            _ = validar.CampoCodigo(txtBoxCodigo.Text, ref msgCod);
+            lblMsgCodigo.Text = msgCod;
+        }
+
+        private void txtBoxCusto_TextChanged(object sender, EventArgs e)
+        {
+            Validador validar = new Validador();
+            string msgCusto = "";
+            _ = validar.CampoDecimal(txtBoxCusto.Text, ref msgCusto);
+            lblMsgCusto.Text = msgCusto;
+        }
+
+        private void txtBoxVenda_TextChanged(object sender, EventArgs e)
+        {
+            Validador validar = new Validador();
+            string msgVenda = "";
+            _ = validar.CampoDecimal(txtBoxVenda.Text, ref msgVenda);
+            lblMsgVenda.Text = msgVenda;
+        }
     }
 }

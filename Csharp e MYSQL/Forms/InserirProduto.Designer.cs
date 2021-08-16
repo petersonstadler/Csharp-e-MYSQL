@@ -92,6 +92,7 @@ namespace Csharp_e_MYSQL.Forms
             this.txtBoxNome.Name = "txtBoxNome";
             this.txtBoxNome.Size = new System.Drawing.Size(217, 26);
             this.txtBoxNome.TabIndex = 4;
+            this.txtBoxNome.TextChanged += new System.EventHandler(this.txtBoxNome_TextChanged);
             // 
             // txtBoxCodigo
             // 
@@ -100,6 +101,7 @@ namespace Csharp_e_MYSQL.Forms
             this.txtBoxCodigo.Name = "txtBoxCodigo";
             this.txtBoxCodigo.Size = new System.Drawing.Size(217, 26);
             this.txtBoxCodigo.TabIndex = 5;
+            this.txtBoxCodigo.TextChanged += new System.EventHandler(this.txtBoxCodigo_TextChanged);
             // 
             // txtBoxCusto
             // 
@@ -108,6 +110,7 @@ namespace Csharp_e_MYSQL.Forms
             this.txtBoxCusto.Name = "txtBoxCusto";
             this.txtBoxCusto.Size = new System.Drawing.Size(100, 26);
             this.txtBoxCusto.TabIndex = 6;
+            this.txtBoxCusto.TextChanged += new System.EventHandler(this.txtBoxCusto_TextChanged);
             // 
             // txtBoxVenda
             // 
@@ -116,6 +119,7 @@ namespace Csharp_e_MYSQL.Forms
             this.txtBoxVenda.Name = "txtBoxVenda";
             this.txtBoxVenda.Size = new System.Drawing.Size(100, 26);
             this.txtBoxVenda.TabIndex = 7;
+            this.txtBoxVenda.TextChanged += new System.EventHandler(this.txtBoxVenda_TextChanged);
             // 
             // btnConfirma
             // 
