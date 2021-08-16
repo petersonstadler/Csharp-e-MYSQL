@@ -107,5 +107,10 @@ namespace Csharp_e_MYSQL
                 }
             }
         }
+
+        private void txtBoxPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            dataGridMain.DataSource = produto.BuscaEmDigitacao(txtBoxPesquisa.Text);
+        }
     }
 }

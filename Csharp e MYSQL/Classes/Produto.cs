@@ -34,6 +34,12 @@ namespace Csharp_e_MYSQL.Classes
             dt = db.FillDataTable($"SELECT idprod as Id, nomeprod as Nome, codprod as Codigo, custoprod as Custo, vendaprod as Venda FROM produto WHERE nomeprod LIKE'%{busca}%';", "Buscar Produto");
         }
 
+        public DataTable BuscaEmDigitacao(string busca)
+        {
+            DatabaseConnection db = new DatabaseConnection();
+            return db.FillDataTable($"SELECT idprod as Id, nomeprod as Nome, codprod as Codigo, custoprod as Custo, vendaprod as Venda FROM produto WHERE nomeprod LIKE'{busca}%';", "Buscar Produto");
+        }
+
         public void ExcluirProduto(int idex)
         {
             DatabaseConnection db = new DatabaseConnection();

@@ -103,6 +103,7 @@ namespace Csharp_e_MYSQL
             this.txtBoxPesquisa.Name = "txtBoxPesquisa";
             this.txtBoxPesquisa.Size = new System.Drawing.Size(483, 26);
             this.txtBoxPesquisa.TabIndex = 5;
+            this.txtBoxPesquisa.TextChanged += new System.EventHandler(this.txtBoxPesquisa_TextChanged);
             // 
             // FormPrincipal
             // 
