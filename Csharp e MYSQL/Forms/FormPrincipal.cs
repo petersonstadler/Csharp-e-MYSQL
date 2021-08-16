@@ -73,5 +73,21 @@ namespace Csharp_e_MYSQL
                 FormProduto.Focus();
             }
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            int busca;
+            DataTable dt = new DataTable();
+            if(int.TryParse(txtBoxPesquisa.Text, out busca))
+            {
+                produto.BuscarProdutoPorId(busca, ref dt);
+                dataGridMain.DataSource = dt;
+            }
+            else
+            {
+                produto.BuscarProdutoPorNome(txtBoxPesquisa.Text, ref dt);
+                dataGridMain.DataSource = dt;
+            }
+        }
     }
 }

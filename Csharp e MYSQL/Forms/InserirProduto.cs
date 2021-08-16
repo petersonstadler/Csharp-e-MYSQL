@@ -19,6 +19,7 @@ namespace Csharp_e_MYSQL.Forms
 
         public InserirProduto(Produto p)
         {
+            InitializeComponent();
             produto = p;
         }
 
