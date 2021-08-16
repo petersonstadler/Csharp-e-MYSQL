@@ -34,6 +34,7 @@ namespace Csharp_e_MYSQL.Forms
                     {
                         db.NonQuery($"INSERT INTO produto VALUES (null, '{txtBoxNome.Text}', {txtBoxCodigo.Text}, {txtBoxCusto.Text.Replace(",", ".")}, {txtBoxVenda.Text.Replace(",", ".")});");
                         MessageBox.Show("Produto inserido com sucesso!", "Inserir Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimparTxtBox();
                     }
                     else
                     {
