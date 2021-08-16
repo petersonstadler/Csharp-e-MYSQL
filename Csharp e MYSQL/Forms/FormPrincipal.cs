@@ -89,5 +89,22 @@ namespace Csharp_e_MYSQL
                 dataGridMain.DataSource = dt;
             }
         }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show($"Deseja Excluir o Produto {produto.Nome}?", "Excluir Produto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(result == DialogResult.Yes)
+            {
+                result = MessageBox.Show($"Tem certeza que deseja Excluir o Produto {produto.Nome}? Uma vez excluido não terá retorno.", "Excluir Produto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(result == DialogResult.Yes)
+                {
+                    produto.ExcluirProduto(produto.Id);
+                }
+                else
+                {
+                    MessageBox.Show("Produto não excluido!", "Excluir Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
     }
 }

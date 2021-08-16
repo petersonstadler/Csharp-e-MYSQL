@@ -33,5 +33,19 @@ namespace Csharp_e_MYSQL.Classes
             DatabaseConnection db = new DatabaseConnection();
             dt = db.FillDataTable($"SELECT idprod as Id, nomeprod as Nome, codprod as Codigo, custoprod as Custo, vendaprod as Venda FROM produto WHERE nomeprod LIKE'%{busca}%';", "Buscar Produto");
         }
+
+        public void ExcluirProduto(int idex)
+        {
+            DatabaseConnection db = new DatabaseConnection();
+            try
+            {
+                db.NonQuery($"DELETE FROM produto WHERE idprod = {idex}");
+                MessageBox.Show("Produto Excluído com sucesso!", "Excluir Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Não foi possível realizar a exclusão!\n\n" + e, "Excluir Produto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
