@@ -46,7 +46,7 @@ namespace Csharp_e_MYSQL
                 produto.Nome = Convert.ToString(dataGridMain.Rows[e.RowIndex].Cells[1].Value);
                 produto.Cod = Convert.ToInt32(dataGridMain.Rows[e.RowIndex].Cells[2].Value);
                 produto.Custo = Convert.ToDecimal(dataGridMain.Rows[e.RowIndex].Cells[3].Value);
-                produto.Venda = Convert.ToDecimal(dataGridMain.Rows[e.RowIndex].Cells[3].Value);
+                produto.Venda = Convert.ToDecimal(dataGridMain.Rows[e.RowIndex].Cells[4].Value);
             }
             catch(Exception er)
             {
