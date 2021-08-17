@@ -8,7 +8,7 @@ namespace Csharp_e_MYSQL.Forms
     {
 
         public Produto produto = new Produto();
-        private char func = 'i';
+        private char func = 'i';  //Esta variavel define se o produto vai ser INSERIDO(i) no banco ou ALTERADO(a ou qualquer valor).
 
         public char Func { get => func; set => func = value; }
 
@@ -23,7 +23,7 @@ namespace Csharp_e_MYSQL.Forms
             produto = p;
         }
 
-        private void btnConfirma_Click(object sender, EventArgs e)
+        private void btnConfirma_Click(object sender, EventArgs e)  //Valida o formulário InserirProduto, verifica se é para inserir ou alterar o produto, e executa o SQL.
         {
             if (ValidarFormulario())
             {
@@ -63,7 +63,7 @@ namespace Csharp_e_MYSQL.Forms
             }
         }
 
-        private bool ValidarFormulario()
+        private bool ValidarFormulario()  //Faz a validação do formulário
         {
             Validador validar = new Validador();
             string msgNome = "";
