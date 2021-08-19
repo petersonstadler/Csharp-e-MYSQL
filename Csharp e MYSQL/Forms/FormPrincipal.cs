@@ -14,10 +14,7 @@ namespace Csharp_e_MYSQL
         public FormPrincipal()
         {
             InitializeComponent();
-            Produto p = new Produto();
-            DataTable dt = new DataTable();
-            p.ListarProdutos(ref dt);
-            dataGridMain.DataSource = dt;
+            dataGridMain.DataSource = produto.ListarProdutos();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -25,13 +22,13 @@ namespace Csharp_e_MYSQL
             if(FormProduto == null || FormProduto.IsDisposed)
             {
                 FormProduto = new InserirProduto();
-                FormProduto.Func = 'i';
+                FormProduto.InserirOuAlterar = 'i';
                 FormProduto.Show();
             }
             else
             {
                 FormProduto.LimparTxtBox();
-                FormProduto.Func = 'i';
+                FormProduto.InserirOuAlterar = 'i';
                 FormProduto.Show();
                 FormProduto.Focus();
             }
@@ -59,7 +56,7 @@ namespace Csharp_e_MYSQL
             if (FormProduto == null || FormProduto.IsDisposed)
             {
                 FormProduto = new InserirProduto();
-                FormProduto.Func = 'a';
+                FormProduto.InserirOuAlterar = 'a';
                 FormProduto.produto = produto;
                 FormProduto.PopularTxtBox(produto.Nome, produto.Cod, produto.Custo, produto.Venda);
                 FormProduto.Show();
@@ -68,7 +65,7 @@ namespace Csharp_e_MYSQL
             {
                 FormProduto.produto = produto;
                 FormProduto.PopularTxtBox(produto.Nome, produto.Cod, produto.Custo, produto.Venda);
-                FormProduto.Func = 'a';
+                FormProduto.InserirOuAlterar = 'a';
                 FormProduto.Show();
                 FormProduto.Focus();
             }
@@ -77,16 +74,13 @@ namespace Csharp_e_MYSQL
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             int busca;
-            DataTable dt = new DataTable();
             if(int.TryParse(txtBoxPesquisa.Text, out busca))
             {
-                produto.BuscarProdutoPorId(busca, ref dt);
-                dataGridMain.DataSource = dt;
+                dataGridMain.DataSource = produto.BuscarProdutoPorId(busca);
             }
             else
             {
-                produto.BuscarProdutoPorNome(txtBoxPesquisa.Text, ref dt);
-                dataGridMain.DataSource = dt;
+                dataGridMain.DataSource = produto.BuscarProdutoPorNome(txtBoxPesquisa.Text);
             }
         }
 

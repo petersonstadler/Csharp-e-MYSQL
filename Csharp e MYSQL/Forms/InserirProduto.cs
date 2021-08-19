@@ -8,9 +8,9 @@ namespace Csharp_e_MYSQL.Forms
     {
 
         public Produto produto = new Produto();
-        private char func = 'i';  //Esta variavel define se o produto vai ser INSERIDO(i) no banco ou ALTERADO(a ou qualquer valor).
+        private char inserirOuAlterar = 'i';  //Esta variavel define se o produto vai ser INSERIDO(i) no banco ou ALTERADO(a ou qualquer valor).
 
-        public char Func { get => func; set => func = value; }
+        public char InserirOuAlterar { get => inserirOuAlterar; set => inserirOuAlterar = value; }
 
         public InserirProduto()
         {
@@ -30,7 +30,7 @@ namespace Csharp_e_MYSQL.Forms
                 DatabaseConnection db = new DatabaseConnection();
                 try
                 {
-                    if (Func == 'i')
+                    if (InserirOuAlterar == 'i')
                     {
                         db.NonQuery($"INSERT INTO produto VALUES (null, '{txtBoxNome.Text}', {txtBoxCodigo.Text}, {txtBoxCusto.Text.Replace(",", ".")}, {txtBoxVenda.Text.Replace(",", ".")});");
                         MessageBox.Show("Produto inserido com sucesso!", "Inserir Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -49,7 +49,7 @@ namespace Csharp_e_MYSQL.Forms
                 }
                 catch(Exception er)
                 {
-                    if (Func == 'i')
+                    if (InserirOuAlterar == 'i')
                     {
                         MessageBox.Show("Erro ao incluir produto!" + er, "Incluir Produto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         db.Close();
@@ -103,7 +103,7 @@ namespace Csharp_e_MYSQL.Forms
 
         private void InserirProduto_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (func == 'i')
+            if (inserirOuAlterar == 'i')
             {
                 if (txtBoxNome.Text != "" || txtBoxCodigo.Text != "" || txtBoxCusto.Text != "" || txtBoxVenda.Text != "")
                 {
