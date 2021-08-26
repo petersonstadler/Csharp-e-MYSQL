@@ -6,7 +6,7 @@ namespace Csharp_e_MYSQL_testes
     [TestClass]
     public class UnitTest1
     {
-        
+
 
         [TestMethod]
         [DataRow("Pe")]
@@ -17,7 +17,19 @@ namespace Csharp_e_MYSQL_testes
             Validador validar = new Validador();
             string msg = "";
             bool result = validar.CampoNome(nome, ref msg);
-            Assert.AreEqual(false, result);
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        [DataRow("Peterson")]
+        [DataRow("Thiago")]
+        [DataRow("Fred Flingstone")]
+        public void TestarValidadorCampoNome_CasoAceitavel(string nome)
+        {
+            Validador validar = new Validador();
+            string msg = "";
+            bool result = validar.CampoNome(nome, ref msg);
+            Assert.IsTrue(result);
         }
     }
 }
