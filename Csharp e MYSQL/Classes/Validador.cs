@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Csharp_e_MYSQL.Classes
 {
-    class Validador
+    public class Validador
     {
         
 
